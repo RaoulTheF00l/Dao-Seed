@@ -4,7 +4,8 @@
 // Think of it like the player's character sheet.
 // =====================================================
 
-const player = {
+
+const DEFAULT_PLAYER = {
   realm: "Mortal",
   stage: 1,
   qi: 0,
@@ -13,6 +14,22 @@ const player = {
   stones: 0,
   innerDemon: 0
 };
+
+
+
+
+// =====================================================
+// PLAYER STATE
+// This object stores the player's current character data.
+// Think of it like the player's character sheet.
+// =====================================================
+
+    const player = {
+        ...DEFAULT_PLAYER
+    };
+
+
+    const SAVE_KEY = "daoSeedSave";
 
 
 // =====================================================
@@ -28,6 +45,9 @@ const meditateButton = document.getElementById("meditateButton");
 const workButton = document.getElementById("workButton");
 const exploreButton = document.getElementById("exploreButton");
 const breakthroughButton = document.getElementById("breakthroughButton");
+const saveButton = document.getElementById("saveButton");
+const loadButton = document.getElementById("loadButton");
+const resetButton = document.getElementById("resetButton");
 
 
 // =====================================================
@@ -40,6 +60,9 @@ meditateButton.addEventListener("click", meditate);
 workButton.addEventListener("click", work);
 exploreButton.addEventListener("click", explore);
 breakthroughButton.addEventListener("click", attemptBreakthrough);
+saveButton.addEventListener("click", saveGame);
+loadButton.addEventListener("click", loadGame);
+resetButton.addEventListener("click", resetGame);
 
 
 // =====================================================
@@ -78,6 +101,8 @@ function work() {
 
   addLog("You spend the day hauling water for the outer sect. It is not glorious, but it pays.");
 
+  //youngMasterEncounter();
+
   updateGame();
 }
 
@@ -95,6 +120,7 @@ function explore() {
   } else {
     player.body -= 1;
     addLog("A wild beast wounds you before you manage to escape.");
+    //combatEncounter();
   }
 
   updateGame();
@@ -148,6 +174,50 @@ function advanceRealm() {
 
   addLog("You have reached the current limit of this prototype.");
 }
+
+// =====================================================
+// SAVE / LOAD / RESET
+// This adds local storage logic.
+// =====================================================
+
+function saveGame() {
+    const saveData = JSON.stringify(player);
+
+    localStorage.setItem(SAVE_KEY, saveData);
+
+    addLog("Your journey has been recorded.")
+}
+
+function loadGame() {
+    const saveData = localStorage.getItem(SAVE_KEY);
+
+    if(saveData === null) {
+        addLog("No saved game was found.");
+        return;
+    }
+
+    const loadedPlayer = JSON.parse(saveData);
+
+    Object.assign(player, loadedPlayer);
+
+    addLog("Your recorded journey has been restored.");
+
+
+    updateGame();
+}
+
+function resetGame() {
+    return
+}
+
+
+// =====================================================
+// COMBAT
+// Calls combat scene
+// =====================================================
+
+
+
 
 // =====================================================
 // UI UPDATE FUNCTIONS
