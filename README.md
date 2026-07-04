@@ -80,3 +80,9 @@ No installation is required.
 ## License
 
 License not chosen yet.
+
+## Live Demo
+
+Play the current prototype here:
+
+https://RaoulTheF00l.github.io/dao-seed/
