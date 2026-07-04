@@ -85,4 +85,4 @@ License not chosen yet.
 
 Play the current prototype here:
 
-https://RaoulTheF00l.github.io/dao-seed/
+https://raoulthef00l.github.io/Dao-Seed/
