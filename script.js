@@ -277,6 +277,10 @@ function addLog(message) {
   logElement.prepend(paragraph);
 }
 
+export function clearLog() {
+    logElement.innerHTML = "";
+}
+
 
 // =====================================================
 // INITIAL PAGE UPDATE
