@@ -2,15 +2,13 @@
 
 Dao Seed is a small browser-based incremental/adventure game built with JavaScript. The project focuses on simple progression systems, save/load logic, modular code organization, and turn-based combat.
 
-## Screenshot
+# Dao Seed
 
-![Dao Seed main screen](assets/screenshots/dao-seed-main.png)
+Dao Seed is a small browser-based incremental/adventure game built with JavaScript.
 
-## Live Demo
+[Play the Live Demo](https://raoulthef00l.github.io/Dao-Seed/)
 
-Play the current prototype here:
-
-https://raoulthef00l.github.io/Dao-Seed/
+<img src="assets/screenshots/dao-seed-main.png" alt="Dao Seed main screen" width="700">
 
 ## Features
 
